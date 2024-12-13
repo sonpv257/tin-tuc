@@ -1,41 +1,41 @@
- "use client";  
+"use client";
 
-import React, { useEffect } from "react";  
-import Link from "next/link";  
-import { useDispatch, useSelector } from "react-redux";  
-import { fetchTinTucHeThong } from "../redux/slices/tinTucSlice";  
-import { RootState, AppDispatch } from "../redux/store";  
+import React, { useEffect } from "react";
+import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchTinTucHeThong } from "../redux/slices/tinTucSlice";
+import { RootState, AppDispatch } from "../redux/store";
 
-import Card from "@mui/material/Card";  
-import CardContent from "@mui/material/CardContent";  
-import CardMedia from "@mui/material/CardMedia";  
-import Typography from "@mui/material/Typography";  
-import Grid from "@mui/material/Grid2";  
-import Box from "@mui/material/Box";  
-import CardActionArea from "@mui/material/CardActionArea";  
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import Grid from "@mui/material/Grid2";
+import Box from "@mui/material/Box";
+import CardActionArea from "@mui/material/CardActionArea";
 
-export interface TinTuc {  
-  id: string;  
-  tieuDe: string;  
-  tomTat: string;  
-  anhDaiDien: string;  
-  nguoiTao: string;  
-  ngayTao: string;  
-  urlChiTiet: string;  
-  fileDinhKem: string;  
+export interface TinTuc {
+  id: string;
+  tieuDe: string;
+  tomTat: string;
+  anhDaiDien: string;
+  nguoiTao: string;
+  ngayTao: string;
+  urlChiTiet: string;
+  fileDinhKem: string;
 }
 
-export default function DanhSachTinTuc() {  
-  const dispatch = useDispatch<AppDispatch>();  
-  const { tinTucList } = useSelector((state: RootState) => state.tinTucHeThong);  
+export default function DanhSachTinTuc() {
+  const dispatch = useDispatch<AppDispatch>();
+  const { tinTucList } = useSelector((state: RootState) => state.tinTucHeThong);
 
-  useEffect(() => {  
-    if (tinTucList.length === 0) {  
-      dispatch(fetchTinTucHeThong());  
-    }  
-  }, [dispatch, tinTucList]);  
+  useEffect(() => {
+    if (tinTucList.length === 0) {
+      dispatch(fetchTinTucHeThong());
+    }
+  }, [dispatch, tinTucList]);
 
-  return ( 
+  return (
     <Box sx={{ padding: 2 }}>
       <Grid container spacing={2}>
         {/*  */}

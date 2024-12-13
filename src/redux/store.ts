@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { configureStore } from '@reduxjs/toolkit';
-import danhMucReducer from './slices/danhMucSlice';
-import tinTucHeThongReducer from './slices/tinTucSlice';
-import chiTietTinTucReducer from './slices/chiTietSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import danhMucReducer from "./slices/danhMucSlice";
+import tinTucHeThongReducer from "./slices/tinTucSlice";
+import chiTietTinTucReducer from "./slices/chiTietSlice";
 
 export const store = configureStore({
   reducer: {

@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { fetchDanhMucApi } from "../../services/danhMucService";
-import { DanhMuc } from "@/components/DanhMuc";
+import { fetchDanhMucApi } from "../../services/danh-muc/danhMucService";
+import { DanhMuc } from "@/model/danh-muc/DanhMuc";
 
 interface DanhMucState {
   danhMucList: DanhMuc[];

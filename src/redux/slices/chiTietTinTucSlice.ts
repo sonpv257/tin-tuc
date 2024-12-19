@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { fetchChiTietTinTucApi } from "../../services/chiTietService";
-import { ChiTietTinTuc } from "@/components/ChiTiet";
+import { fetchChiTietTinTucApi } from "../../services/tin-tuc/chiTietService";
+import { ChiTietTinTuc } from "@/model/tic-tuc/ChiTietTinTuc";
 import { AxiosError } from "axios";
 
 interface ChiTietTinTucState {

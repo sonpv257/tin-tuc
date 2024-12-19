@@ -1,5 +1,5 @@
 import axios from "axios";
-import { DanhMuc } from "@/components/DanhMuc";
+import { DanhMuc } from "@/model/danh-muc/DanhMuc";
 
 export const fetchDanhMucApi = async (): Promise<DanhMuc[]> => {
   const response = await axios.get(

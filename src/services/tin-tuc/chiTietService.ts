@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ChiTietTinTuc } from "@/components/ChiTiet";
+import { ChiTietTinTuc } from "@/model/tic-tuc/ChiTietTinTuc";
 
 export const fetchChiTietTinTucApi = async (
   id: string

@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { fetchTinTucHeThongApi } from "../../services/tinTucService";
-import { TinTuc } from "@/components/TinTuc";
+import { fetchTinTucHeThongApi } from "../../services/tin-tuc/tinTucService";
+import { TinTuc } from "@/model/tic-tuc/TinTuc";
 
 interface TinTucState {
   tinTucList: TinTuc[];

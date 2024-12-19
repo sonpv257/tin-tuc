@@ -1,5 +1,5 @@
 import axios from "axios";
-import { TinTuc } from "@/components/TinTuc";
+import { TinTuc } from "@/model/tic-tuc/TinTuc";
 
 export const fetchTinTucHeThongApi = async (): Promise<TinTuc[]> => {
   const response = await axios.get(

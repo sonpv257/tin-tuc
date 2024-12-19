@@ -1,7 +1,7 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import ChiTiet from "../../../components/ChiTiet";
+import ChiTiet from "../../../components/tin-tuc/ChiTiet";
 
 const ChiTietTinTuc = () => {
   const params = useParams();

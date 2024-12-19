@@ -3,8 +3,8 @@
 import React, { useEffect } from "react";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchTinTucHeThong } from "../redux/slices/tinTucSlice";
-import { RootState, AppDispatch } from "../redux/store";
+import { fetchTinTucHeThong } from "../../redux/slices/tinTucSlice";
+import { RootState, AppDispatch } from "../../redux/store";
 
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -13,17 +13,6 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid2";
 import Box from "@mui/material/Box";
 import CardActionArea from "@mui/material/CardActionArea";
-
-export interface TinTuc {
-  id: string;
-  tieuDe: string;
-  tomTat: string;
-  anhDaiDien: string;
-  nguoiTao: string;
-  ngayTao: string;
-  urlChiTiet: string;
-  fileDinhKem: string;
-}
 
 export default function DanhSachTinTuc() {
   const dispatch = useDispatch<AppDispatch>();

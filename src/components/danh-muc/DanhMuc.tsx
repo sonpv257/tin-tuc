@@ -2,9 +2,9 @@
 
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchDanhMuc } from "../redux/slices/danhMucSlice";
-import { RootState, AppDispatch } from "../redux/store";
-import { ELogo } from "./ELogo";
+import { fetchDanhMuc } from "../../redux/slices/danhMucSlice";
+import { RootState, AppDispatch } from "../../redux/store";
+import { ELogo } from "../ui/ELogo";
 
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
@@ -18,14 +18,6 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import Link from "next/link";
-
-export interface DanhMuc {
-  id: string;
-  tenDanhMuc: string;
-  thuTu: number;
-  kickHoat: boolean;
-  ngayTao: string;
-}
 
 export default function DanhMuc() {
   const dispatch = useDispatch<AppDispatch>();

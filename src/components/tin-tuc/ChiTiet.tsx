@@ -2,9 +2,9 @@
 
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState, AppDispatch } from "../redux/store";
-import { fetchChiTietTinTuc } from "../redux/slices/chiTietSlice";
-import DanhMuc from "@/components/DanhMuc";
+import { RootState, AppDispatch } from "../../redux/store";
+import { fetchChiTietTinTuc } from "../../redux/slices/chiTietTinTucSlice";
+import DanhMuc from "@/components/danh-muc/DanhMuc";
 import React from "react";
 import {
   Box,
@@ -15,20 +15,7 @@ import {
   Alert,
 } from "@mui/material";
 import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
-import Breadcrumbs from "@/components/Breadcrumbs";
-
-export interface ChiTietTinTuc {
-  id: string;
-  tieuDe: string;
-  tomTat: string;
-  noiDung: string;
-  anhDaiDien: string;
-  ngayTao: string;
-  tag: string;
-  nguonTin: string;
-  tacGia: string;
-  fileDinhKem: string;
-}
+import Breadcrumbs from "@/components/ui/Breadcrumbs";
 
 interface ChiTietProps {
   id: string;

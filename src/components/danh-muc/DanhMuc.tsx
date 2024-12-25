@@ -82,6 +82,12 @@ export default function DanhMuc() {
                   <Typography textAlign="left">{danhmuc.tenDanhMuc}</Typography>
                 </MenuItem>
               ))}
+              {/* Products page */}
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Link href="/san-pham">
+                  <Typography textAlign="left">Products</Typography>
+                </Link>
+              </MenuItem>
             </Menu>
           </Box>
 
@@ -100,6 +106,13 @@ export default function DanhMuc() {
                 {danhmuc.tenDanhMuc}
               </Button>
             ))}
+            {/* Products button */}
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              <Link href="/san-pham">Products</Link>
+            </Button>
           </Box>
         </Toolbar>
       </Container>

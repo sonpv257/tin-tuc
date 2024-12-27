@@ -16,7 +16,7 @@ export const fetchSanPham = createAsyncThunk(
     const response = await fetchSanPhamApi();
     return response.map((sanPham: SanPham) => ({
       ...sanPham,
-      gia: sanPham.gia || 100000,
+      gia: sanPham.gia || (Math.random() < 0.3 ? 100000 : Math.random() < 0.5 ? 200000 : 300000),
     }));
   }
 );

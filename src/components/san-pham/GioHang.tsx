@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Modal,
   Box,
@@ -12,6 +12,7 @@ import {
   Button,
   TextField,
   CardMedia,
+  TableSortLabel,
 } from "@mui/material";
 import { useNotify } from "../ui/Notification";
 
@@ -38,6 +39,15 @@ const GioHang: React.FC<GioHangProps> = ({
 }) => {
   const { showNotification } = useNotify();
 
+  const [order, setOrder] = useState<"asc" | "desc">("asc");
+  const [orderBy, setOrderBy] = useState<keyof (typeof cart)[0]>("tieuDe");
+
+  const handleRequestSort = (property: keyof (typeof cart)[0]) => {
+    const isAsc = orderBy === property && order === "asc";
+    setOrder(isAsc ? "desc" : "asc");
+    setOrderBy(property);
+  };
+
   const handleRemove = (productId: string, productName: string) => {
     handleRemoveFromCart(productId);
     showNotification({
@@ -45,6 +55,26 @@ const GioHang: React.FC<GioHangProps> = ({
       variant: "success",
     });
   };
+
+  const sortData = (array: any[], comparator: (a: any, b: any) => number) => {
+    return array.sort(comparator);
+  };
+
+  const comparator = (a: any, b: any) => {
+    if (orderBy === "gia") {
+      return order === "asc" ? a.gia - b.gia : b.gia - a.gia;
+    }
+    if (orderBy === "quantity") {
+      return order === "asc"
+        ? a.quantity - b.quantity
+        : b.quantity - a.quantity;
+    }
+    return order === "asc"
+      ? a[orderBy].localeCompare(b[orderBy])
+      : b[orderBy].localeCompare(a[orderBy]);
+  };
+
+  const sortedCart = sortData([...cart], comparator);
 
   return (
     <Modal open={open} onClose={onClose} aria-labelledby="modal-cart-title">
@@ -78,14 +108,38 @@ const GioHang: React.FC<GioHangProps> = ({
             <TableHead>
               <TableRow>
                 <TableCell>Ảnh</TableCell>
-                <TableCell>Sản phẩm</TableCell>
-                <TableCell>Giá</TableCell>
-                <TableCell>Số lượng</TableCell>
+                <TableCell>
+                  <TableSortLabel
+                    active={orderBy === "tieuDe"}
+                    direction={orderBy === "tieuDe" ? order : "asc"}
+                    onClick={() => handleRequestSort("tieuDe")}
+                  >
+                    Sản phẩm
+                  </TableSortLabel>
+                </TableCell>
+                <TableCell>
+                  <TableSortLabel
+                    active={orderBy === "gia"}
+                    direction={orderBy === "gia" ? order : "asc"}
+                    onClick={() => handleRequestSort("gia")}
+                  >
+                    Giá
+                  </TableSortLabel>
+                </TableCell>
+                <TableCell>
+                  <TableSortLabel
+                    active={orderBy === "quantity"}
+                    direction={orderBy === "quantity" ? order : "asc"}
+                    onClick={() => handleRequestSort("quantity")}
+                  >
+                    Số lượng
+                  </TableSortLabel>
+                </TableCell>
                 <TableCell>Tùy chọn</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {cart.map((product) => (
+              {sortedCart.map((product) => (
                 <TableRow key={product.id}>
                   <TableCell>
                     <CardMedia
@@ -100,6 +154,7 @@ const GioHang: React.FC<GioHangProps> = ({
                       overflow: "hidden",
                       textOverflow: "ellipsis",
                       whiteSpace: "nowrap",
+                      maxWidth: 550,
                     }}
                   >
                     {product.tieuDe}
@@ -112,7 +167,6 @@ const GioHang: React.FC<GioHangProps> = ({
                         handleQuantityChange(product.id, +e.target.value)
                       }
                       type="number"
-                      sx={{ width: 60 }}
                     />
                   </TableCell>
                   <TableCell>

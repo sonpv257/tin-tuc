@@ -154,6 +154,7 @@ const GioHang: React.FC<GioHangProps> = ({
                       overflow: "hidden",
                       textOverflow: "ellipsis",
                       whiteSpace: "nowrap",
+                      minWidth: 550,
                       maxWidth: 550,
                     }}
                   >

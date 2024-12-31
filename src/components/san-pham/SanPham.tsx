@@ -29,7 +29,13 @@ const SanPham: React.FC<SanPhamProps> = ({ product, handleAddToCart }) => {
   };
 
   return (
-    <Card sx={{ width: 340, position: "relative" }}>
+    <Card
+      sx={{
+        width: { xs: "100%", sm: 340 },
+        position: "relative",
+        boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+      }}
+    >
       <CardMedia
         component="img"
         height="200"
@@ -53,7 +59,7 @@ const SanPham: React.FC<SanPhamProps> = ({ product, handleAddToCart }) => {
           variant="h6"
           sx={{
             marginTop: 1,
-            fontSize: "16px",
+            fontSize: { xs: "14px", sm: "16px" },
             fontWeight: "bold",
             color: "#ff5722",
             fontFamily: '"Roboto", sans-serif',

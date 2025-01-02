@@ -42,7 +42,13 @@ export default function DanhMuc() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar
+      position="sticky"
+      sx={{
+        backgroundColor: "#1976d2", 
+        zIndex: (theme) => theme.zIndex.drawer + 1,
+      }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* Mobile */}
@@ -71,7 +77,10 @@ export default function DanhMuc() {
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={{ display: { xs: "block", md: "none", marginTop: "5px" } }}
+              sx={{
+                display: { xs: "block", md: "none" },
+                marginTop: "5px",
+              }}
             >
               {danhMucList.map((danhmuc) => (
                 <MenuItem
@@ -101,7 +110,12 @@ export default function DanhMuc() {
               <Button
                 key={danhmuc.id}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+                sx={{
+                  my: 2,
+                  color: "white",
+                  display: "block",
+                  fontSize: { sm: "12px", md: "14px", lg: "16px" }, 
+                }}
               >
                 {danhmuc.tenDanhMuc}
               </Button>
@@ -109,7 +123,12 @@ export default function DanhMuc() {
             {/* Products button */}
             <Button
               onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: "white", display: "block" }}
+              sx={{
+                my: 2,
+                color: "white",
+                display: "block",
+                fontSize: { sm: "12px", md: "14px", lg: "16px" },
+              }}
             >
               <Link href="/san-pham">Products</Link>
             </Button>

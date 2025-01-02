@@ -26,7 +26,7 @@ export default function DanhSachTinTuc() {
 
   return (
     <Box sx={{ padding: 2, margin: "auto" }}>
-      <Grid
+      <Grid 
         container
         spacing={2}
         sx={{
@@ -93,7 +93,7 @@ export default function DanhSachTinTuc() {
             >
               <Card
                 sx={{
-                  width: "100%",
+                  width: {xs: "100%", md:"80%"},
                   height: { xs: 270, md: 200 },
                   position: "relative",
                 }}
